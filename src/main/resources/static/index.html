@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="pt-br" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="pt-br" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="pt-br" data-ng-app="brazilElectionsApp"> <!--<![endif]-->
+
+    <!-- START @HEAD -->
+    <head>
+        <!-- START @META SECTION -->
+        <meta charset="ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Application created as final project of discipline of Massive Database of the Professional Master in Applied Computation - UnB University of Brasília">
+        <meta name="keywords" content="eleição, neo4j, analise de doações, ">
+        <meta name="author" content="Frederico, Rodrigo Peres, Wescley de Macêdo">
+        <title>Analysis Brazil 2014 Elections with Graph-Oriented Database</title>
+        <!--/ END META SECTION -->
+
+        <!-- START @GLOBAL MANDATORY STYLES -->
+        <link data-ng-href="{{settings.pluginPath}}/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link data-ng-href="{{settings.pluginPath}}/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link data-ng-href="{{settings.pluginPath}}/animate.css/animate.min.css" rel="stylesheet">
+        
+        <link data-ng-href="{{settings.pluginPath}}/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+        <link data-ng-href="{{settings.pluginPath}}/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+        <link data-ng-href="{{settings.pluginPath}}/datatables-responsive-helper/files/1.10/css/datatables.responsive.css" rel="stylesheet">		
+
+        <link data-ng-href="{{settings.pluginPath}}/nvd3/build/nv.d3.css" rel="stylesheet">		
+        <!--/ END GLOBAL MANDATORY STYLES -->
+
+        <!-- START @PAGE LEVEL STYLES -->
+        <link id="load_css_before"/>
+        <!--/ END PAGE LEVEL STYLES -->
+
+        <!-- START @THEME STYLES -->
+        <link href="css/style.css" rel="stylesheet">		
+        <link href="css/component.css" rel="stylesheet">		
+        <!--/ END THEME STYLES -->
+
+    </head>
+    <!--/ END HEAD -->
+
+    <body data-ng-controller="BrazilElectionsCtrl" class="page-sound page-header-fixed page-sidebar-fixed page-footer-fixed">
+
+        <!-- START @WRAPPER -->
+        <section id="wrapper">
+
+            <!-- START @SIDEBAR LEFT -->
+            <aside data-sidebar-left-nicescroll data-sidebar-minimize data-ng-include="'partials/sidebar-left.html'" id="sidebar-left" class="sidebar-circle"></aside><!-- /#sidebar-left -->
+            <!--/ END SIDEBAR LEFT -->
+
+            <!-- START @PAGE CONTENT -->
+            <section id="page-content">
+
+                <!-- Start page header -->
+                <div class="header-content" data-ng-include="'partials/header-content.html'"></div><!-- /.header-content -->
+                <!--/ End page header -->
+
+                <!-- Start body content -->
+                <div data-ui-view class="body-content animated fadeIn"></div><!-- /.body-content -->
+                <!--/ End body content -->
+
+            </section><!-- /#page-content -->
+            <!--/ END PAGE CONTENT -->
+
+        </section><!-- /#wrapper -->
+        <!--/ END WRAPPER -->
+
+        <!-- START @BACK TOP -->
+        <div id="back-top" class="animated pulse circle">
+            <i class="fa fa-angle-up"></i>
+        </div><!-- /#back-top -->
+        <!--/ END BACK TOP -->
+
+        <!-- START JAVASCRIPT SECTION (Load javascripts at bottom to reduce load time) -->
+         <!-- START @CORE PLUGINS -->
+        <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="plugins/bower_components/jquery-nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="plugins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>    
+   
+        <script src="plugins/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script src="plugins/bower_components/datatables/media/js/dataTables.bootstrap.js"></script>
+        <script src="plugins/bower_components/datatables-responsive-helper/files/1.10/js/datatables.responsive.js"></script>
+ 
+        <!--/ END CORE PLUGINS -->
+
+        <!-- BEGIN @CORE ANGULARJS PLUGINS -->        
+        <script src="plugins/bower_components/angular/angular.min.js"></script>
+        <script src="plugins/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+        <script src="plugins/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>        
+        <script src="plugins/bower_components/angular-input-masks/angular-input-masks-standalone.js"></script>        
+        <!-- END @CORE ANGULARJS PLUGINS -->
+
+        <script src="plugins/bower_components/d3/d3.min.js"></script>
+        <script src="plugins/bower_components/nvd3/build/nv.d3.js"></script>
+        <script src="plugins/bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+ 
+
+        <!-- START @PAGE LEVEL SCRIPTS -->
+        <script src="js/apps.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/directives.js"></script>        
+        <!--/ END PAGE LEVEL SCRIPTS -->
+        <!--/ END JAVASCRIPT SECTION -->
+		
+    </body>
+    <!--/ END BODY -->
+
+</html>

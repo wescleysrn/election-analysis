@@ -1,0 +1,385 @@
+
+	<div class="row" data-ng-controller="DashboardCtrl as ctrl" data-ng-init="ctrl.loadDashboard()">
+
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel rounded shadow panel-teal">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h3 class="panel-title">Candidates received larger donation</h3>
+								</div>
+								<div class="pull-right"></div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-body">
+								<nvd3 options="ctrl.optionsDonationsCandidate" data="ctrl.dataDonationsCandidate" on-ready="ctrl.loadCandidateDonationGraph()" class="with-3d-shadow with-transitions chart"></nvd3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel rounded shadow panel-teal">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h3 class="panel-title">Donations received by Party</h3>
+								</div>
+								<div class="pull-right"></div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-body">
+								<nvd3 options="ctrl.optionsDonationsParty" data="ctrl.dataDonationsParty" on-ready="ctrl.loadPartyDonationGraph()" class="with-3d-shadow with-transitions chart"></nvd3>
+							</div>
+						</div>				
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row hidden-xs">
+					<div class="col-md-12">
+						<div class="panel panel-tab shadow">
+							<div class="panel-heading no-padding">
+								<ul class="nav nav-tabs" style="width: 100%;">
+	                                <li data-ng-class="{ active: ctrl.isSet(1) }" class="active nav-border nav-border-top-danger" style="min-width: 50%;">
+	                                    <a href data-ng-click="ctrl.setTab(1)" data-toggle="tab" class="text-center">
+	                                        Largest Company Donator
+	                                    </a>
+	                                </li>
+	                                <li data-ng-class="{ active: ctrl.isSet(2) }" class="nav-border nav-border-top-success" style="min-width: 50%;">
+	                                    <a href data-ng-click="ctrl.setTab(2)" data-toggle="tab" class="text-center no-border">
+	                                        Largest Person Donator
+	                                    </a>
+	                                </li>
+                                </ul>								
+							</div>
+							<div class="panel-body">
+								<div class="tab-content">
+									<div class="tab-pane fade in active" data-ng-class="{ active: ctrl.isSet(1) }" data-ng-show="ctrl.isSet(1)">
+										<ul data-ng-repeat="largestCompanyDonors in ctrl.listLargestCompanyDonors" class="chart top-product-chart no-margin" style="height: inherit;">
+											<li class="current" title="{{largestCompanyDonors.name}}">
+												<img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+												<span class="bar" data-number="900000" style="display: inline-block; width: 100%;"></span>
+												<span class="number" style="left: 100%;"><span class="counter">900</span></span>
+											</li>											
+										</ul>
+									
+									
+										<!--  									
+										<ul class="chart top-product-chart no-margin" style="height: inherit;">
+											<li class="current" title="GERDAU INDUSTRIA SA">
+												<img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+												<span class="bar" data-number="900000" style="display: inline-block; width: 100%;"></span>
+												<span class="number" style="left: 100%;"><span class="counter">900</span></span>
+											</li>
+											<li class="current" title="UTC ENGENHARIA S/A">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="880000" style="display: inline-block; width: 98%;"></span>
+	                                            <span class="number" style="left: 98%;"><span class="counter">880</span></span>
+	                                        </li>									
+											<li class="current" title="CONSTRUTORA QUEIROZ GALVAO S/A">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="720000" style="display: inline-block; width: 89%;"></span>
+	                                            <span class="number" style="left: 89%;"><span class="counter">R$ 720</span></span>
+	                                        </li>									
+											<li class="current" title="VIDA PREVIDÊNCIA S/A">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="670000" style="display: inline-block; width: 81%;"></span>
+	                                            <span class="number" style="left: 81%;"><span class="counter">670</span></span>
+	                                        </li>									
+											<li class="current" title="BANCO SANTANDER S/A">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="610000" style="display: inline-block; width: 73%;"></span>
+	                                            <span class="number" style="left: 73%;"><span class="counter">610</span></span>
+	                                        </li>									
+											<li class="current" title="JBS S.A.">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="570000" style="display: inline-block; width: 66%;"></span>
+	                                            <span class="number" style="left: 66%;"><span class="counter">570</span></span>
+	                                        </li>									
+	                                    </ul>
+	                                    -->
+	                                    
+									</div>								
+									<div class="tab-pane fade in active" data-ng-class="{ active: ctrl.isSet(2) }" data-ng-show="ctrl.isSet(2)">
+									
+										<ul data-ng-repeat="largestPersonDonors in ctrl.listLargestPersonDonors" class="chart top-product-chart no-margin" style="height: inherit;">
+											<li class="current" title="{{largestPersonDonors.name}}">
+												<img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+												<span class="bar" data-number="900000" style="display: inline-block; width: 100%;"></span>
+												<span class="number" style="left: 100%;"><span class="counter">900</span></span>
+											</li>										
+										</ul>
+
+										<!--  
+										<ul class="chart top-product-chart no-margin" style="height: inherit;">
+											<li class="current" title="MARIO COUTO FILHO">
+												<img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+												<span class="bar" data-number="900000" style="display: inline-block; width: 100%;"></span>
+												<span class="number" style="left: 100%;"><span class="counter">900</span></span>
+											</li>
+											<li class="current" title="GERSON DOS SANTOS PERES">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="880000" style="display: inline-block; width: 96%;"></span>
+	                                            <span class="number" style="left: 96%;"><span class="counter">880</span></span>
+	                                        </li>									
+											<li class="current" title="FRANCISCO GALVAO DE CARVALHO">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="720000" style="display: inline-block; width: 85%;"></span>
+	                                            <span class="number" style="left: 85%;"><span class="counter">720</span></span>
+	                                        </li>									
+											<li class="current" title="FABIO BEZERRA DE MELO PEREIRA">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="670000" style="display: inline-block; width: 76%;"></span>
+	                                            <span class="number" style="left: 76%;"><span class="counter">670</span></span>
+	                                        </li>									
+											<li class="current" title="UBIRAJARA SILVA DOS SANTOS">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="610000" style="display: inline-block; width: 68%;"></span>
+	                                            <span class="number" style="left: 68%;"><span class="counter">610</span></span>
+	                                        </li>									
+											<li class="current" title="GRACIELA NIENOV">
+	                                            <img src="http://img.djavaui.com/?create=154x128,81B71A?f=ffffff" alt="...">
+	                                            <span class="bar" data-number="570000" style="display: inline-block; width: 57%;"></span>
+	                                            <span class="number" style="left: 57%;"><span class="counter">570</span></span>
+	                                        </li>									
+	                                    </ul>
+	                                    -->	
+	                                    									
+									</div>								
+								</div>
+							</div>
+						</div>					
+					</div>
+				</div>
+				
+				<div class="row hidden-xs">
+					<div class="col-md-12">
+						<div class="candidate-quick-view shadow">
+							<h3 class="title text-capitalize">JOSÉ SARNEY FILHO - PV</h3>
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+                                    	<img src="http://localhost:8080/election-analysis/images/candidate/sarney-filho.jpg" alt="...">
+                                    </a>									
+								</div>
+								<div class="media-body">
+									<h3 class="media-heading">
+										<span class="text-right text-muted">Total Donation</span>
+										<span class="text-right text-strong">R$ 42.785.348,57</span>
+									</h3>
+									<table class="table table-condensed">
+										<tbody>
+											<tr>
+	                                            <td class="text-left">Person Donations</td>
+	                                            <td class="text-right">R$ 18.457.693,45</td>
+                                            </tr>											
+											<tr>
+	                                            <td class="text-left">Company Donations</td>
+	                                            <td class="text-right">R$ 31.463.578,63</td>
+                                            </tr>											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>					
+					</div>
+				</div>
+				<div class="row hidden-xs">
+					<div class="col-md-12">
+						<div class="candidate-quick-view shadow">
+							<h3 class="title text-capitalize">DILMA VANA ROUSSEFF - PT</h3>
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+                                    	<img src="http://localhost:8080/election-analysis/images/candidate/dilma.jpg" alt="...">
+                                    </a>									
+								</div>
+								<div class="media-body">
+									<h3 class="media-heading">
+										<span class="text-right text-muted">Total Donation</span>
+										<span class="text-right text-strong">R$ 76.314.364,74</span>
+									</h3>
+									<table class="table table-condensed">
+										<tbody>
+											<tr>
+	                                            <td class="text-left">Person Donations</td>
+	                                            <td class="text-right">R$ 18.457.693,45</td>
+                                            </tr>											
+											<tr>
+	                                            <td class="text-left">Company Donations</td>
+	                                            <td class="text-right">R$ 31.463.578,63</td>
+                                            </tr>											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>										
+					</div>
+				</div>
+				<div class="row hidden-xs">
+					<div class="col-md-12">
+						<div class="candidate-quick-view shadow">
+							<h3 class="title text-capitalize">AÉCIO NEVES DA CUNHA - PSDB</h3>
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+                                    	<img src="http://localhost:8080/election-analysis/images/candidate/aecio-neves.jpg" alt="...">
+                                    </a>									
+								</div>
+								<div class="media-body">
+									<h3 class="media-heading">
+										<span class="text-right text-muted">Total Donation</span>
+										<span class="text-right text-strong">R$ 62.976.438,54</span>
+									</h3>
+									<table class="table table-condensed">
+										<tbody>
+											<tr>
+	                                            <td class="text-left">Person Donations</td>
+	                                            <td class="text-right">R$ 18.457.693,45</td>
+                                            </tr>											
+											<tr>
+	                                            <td class="text-left">Company Donations</td>
+	                                            <td class="text-right">R$ 31.463.578,63</td>
+                                            </tr>											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>										
+					</div>
+				</div>
+				<div class="row hidden-xs">
+					<div class="col-md-12">
+						<div class="candidate-quick-view shadow">
+							<h3 class="title text-capitalize">CAMILO SOBREIRA DE SANTANA - PT</h3>
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+                                    	<img src="http://localhost:8080/election-analysis/images/candidate/camilo.jpg" alt="...">
+                                    </a>									
+								</div>
+								<div class="media-body">
+									<h3 class="media-heading">
+										<span class="text-right text-muted">Total Donation</span>
+										<span class="text-right text-strong">R$ 58.637.475,48</span>
+									</h3>
+									<table class="table table-condensed">
+										<tbody>
+											<tr>
+	                                            <td class="text-left">Person Donations</td>
+	                                            <td class="text-right">R$ 18.457.693,45</td>
+                                            </tr>											
+											<tr>
+	                                            <td class="text-left">Company Donations</td>
+	                                            <td class="text-right">R$ 31.463.578,63</td>
+                                            </tr>											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>										
+					</div>
+				</div>
+				
+			</div>		
+		</div>
+		<div class="row">
+			<div class="col-md-12">	
+				<div class="row">
+					<div class="col-md-4">
+						<div class="candidate-quick-view shadow">
+							<h3 class="title text-capitalize">PT - PARTIDO DOS TRABALHADORES</h3>
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+                                    	<img src="http://localhost:8080/election-analysis/images/party/pt.gif" alt="...">
+                                    </a>									
+								</div>
+								<div class="media-body">
+									<h3 class="media-heading">
+										<span class="text-right text-muted">Total Donation</span>
+										<span class="text-right text-strong">R$ 42.785.348,57</span>
+									</h3>
+									<table class="table table-condensed">
+										<tbody>
+											<tr>
+	                                            <td class="text-left">Person Donations</td>
+	                                            <td class="text-right">R$ 18.457.693,45</td>
+                                            </tr>											
+											<tr>
+	                                            <td class="text-left">Company Donations</td>
+	                                            <td class="text-right">R$ 31.463.578,63</td>
+                                            </tr>											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="candidate-quick-view shadow">
+							<h3 class="title text-capitalize">PMDB - PARTIDO DO MOVIMENTO DEMOCRÁTICO BRASILEIRO</h3>
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+                                    	<img src="http://localhost:8080/election-analysis/images/party/PMDB_Logotipo.jpg" alt="...">
+                                    </a>									
+								</div>
+								<div class="media-body">
+									<h3 class="media-heading">
+										<span class="text-right text-muted">Total Donation</span>
+										<span class="text-right text-strong">R$ 76.314.364,74</span>
+									</h3>
+									<table class="table table-condensed">
+										<tbody>
+											<tr>
+	                                            <td class="text-left">Person Donations</td>
+	                                            <td class="text-right">R$ 18.457.693,45</td>
+                                            </tr>											
+											<tr>
+	                                            <td class="text-left">Company Donations</td>
+	                                            <td class="text-right">R$ 31.463.578,63</td>
+                                            </tr>											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>					
+					</div>
+					<div class="col-md-4">
+						<div class="candidate-quick-view shadow">
+							<h3 class="title text-capitalize">PSDB - PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA</h3>
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+                                    	<img src="http://localhost:8080/election-analysis/images/party/psdb.gif" alt="..."> <!-- http://img.djavaui.com/?create=154x128,81B71A?f=ffffff -->
+                                    </a>									
+								</div>
+								<div class="media-body">
+									<h3 class="media-heading">
+										<span class="text-right text-muted">Total Donation</span>
+										<span class="text-right text-strong">R$ 62.976.438,54</span>
+									</h3>
+									<table class="table table-condensed">
+										<tbody>
+											<tr>
+	                                            <td class="text-left">Person Donations</td>
+	                                            <td class="text-right">R$ 18.457.693,45</td>
+                                            </tr>											
+											<tr>
+	                                            <td class="text-left">Company Donations</td>
+	                                            <td class="text-right">R$ 31.463.578,63</td>
+                                            </tr>											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+

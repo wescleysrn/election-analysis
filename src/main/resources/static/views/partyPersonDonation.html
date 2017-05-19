@@ -1,0 +1,150 @@
+
+	<div class="row" data-ng-controller="PartyPersonDonationCtrl as ctrl" data-ng-init="ctrl.loadLargestDonors('candidate')">
+	    <div class="col-md-12">
+	
+	        <div class="panel panel-tab panel-tab-double shadow">
+	            <!-- Start tabs heading -->
+	            <div class="panel-heading no-padding">
+	                <ul class="nav nav-tabs">
+	                    <li data-ng-class="{ active: ctrl.isSet(1) }" class="nav-border nav-border-top-success">
+	                        <a href data-ng-click="ctrl.setTab(1)" data-toggle="tab">
+	                            <i class="icon-list icons fg-success"></i>
+	                            <div>
+	                                <span class="text-strong">Largest Donors</span>
+	                                <span>List mode</span>
+	                            </div>
+	                        </a>
+	                    </li>
+	                    <li data-ng-class="{ active: ctrl.isSet(2) }" class="nav-border nav-border-top-primary">
+	                        <a href data-ng-click="ctrl.setTab(2)" data-toggle="tab">
+	                            <i class="icon-graph icons fg-primary"></i>
+	                            <div>
+	                                <span class="text-strong">Largest Donors</span>
+	                                <span>Graph mode</span>
+	                            </div>
+	                        </a>
+	                    </li>
+	                    <li data-ng-class="{ active: ctrl.isSet(3) }" class="nav-border nav-border-top-primary">
+	                        <a href data-ng-click="ctrl.setTab(3)" data-toggle="tab">
+	                            <i class="icon-list icons fg-primary"></i>
+	                            <div>
+	                                <span class="text-strong">Multi-party donor</span>
+	                                <span>List mode</span>
+	                            </div>
+	                        </a>
+	                    </li>
+	                    <li data-ng-class="{ active: ctrl.isSet(4) }" class="nav-border nav-border-top-primary">
+	                        <a href data-ng-click="ctrl.setTab(4)" data-toggle="tab">
+	                            <i class="icon-graph icons fg-primary"></i>
+	                            <div>
+	                                <span class="text-strong">Multi-party donor</span>
+	                                <span>Graph mode</span>
+	                            </div>
+	                        </a>
+	                    </li>
+	                </ul>
+	            </div><!-- /.panel-heading -->
+	            <!--/ End tabs heading -->
+	
+	            <!-- Start tabs content -->
+	            <div class="panel-body no-padding">
+	                <div class="panel panel-default shadow no-margin">
+	                    <div class="panel-body">
+	                        <div class="tab-content">
+	                            <div class="tab-pane fade in" data-ng-class="{ active: ctrl.isSet(1) }" data-ng-show="ctrl.isSet(1)" >
+	                                <!-- Start datatable -->
+	                                <table class="table table-default table-bordered">
+	                                    <thead>
+	                                    <tr>
+	                                        <th data-class="expand" class="text-center">CPF</th>
+	                                        <th data-hide="phone">Name</th>
+	                                        <th data-hide="phone,tablet">Total donation</th>
+	                                        <th data-hide="phone,tablet" class="text-center" style="width: 140px;">Action</th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody data-ng-repeat="largestDonors in ctrl.listLargestDonors" >
+	                                        <tr>
+	                                            <td class="text-center">{{largestDonors.cpf}}</td>
+	                                            <td>{{largestDonors.name}}</td>
+	                                            <td class="text-right">{{largestDonors.totalDonation | currency:'R$':2}}</td>
+	                                            <td class="text-center">
+	                                                <a href="#" class="btn btn-success" data-toggle="tooltip" data-placement="top" data-title="Detail"><i class="fa fa-eye"></i></a>
+	                                            </td>
+	                                        </tr>	                                    
+	                                    </tbody>
+	                                    
+	                                    <tfoot>
+	                                    <tr>
+	                                        <th data-class="expand" class="text-center">CPF</th>
+	                                        <th data-hide="phone">Name</th>
+	                                        <th data-hide="phone,tablet">Total donation</th>
+	                                        <th data-hide="phone,tablet" class="text-center" style="width: 140px;">Action</th>
+	                                    </tr>
+	                                    </tfoot>
+	                                </table>
+	                                <!--/ End datatable -->
+	                            </div>
+	                            <div class="tab-pane" data-ng-class="{ active: ctrl.isSet(2) }" data-ng-show="ctrl.isSet(2)" style="min-height: 800px;">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="panel rounded shadow">
+												<div class="panel-heading">
+													<div class="pull-left">
+														<h3 class="panel-title">Ranking Donation</h3>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="panel-body no-padding">
+													<table class="table table-default table-bordered">
+														<thead>
+														<tr>
+															<th data-hide="phone">Name</th>
+															<th data-hide="phone,tablet">Total donation</th>
+														</tr>
+														</thead>
+														<tbody data-ng-repeat="largestDonors in ctrl.listLargestDonors">
+															<tr>
+																<td>{{largestDonors.name}}</td>
+																<td class="text-right">{{largestDonors.totalDonation}}</td>
+															</tr>
+														</tbody>
+														<tfoot>
+														<tr>
+															<th data-hide="phone">Name</th>
+															<th data-hide="phone,tablet">Total donation</th>
+														</tr>
+														</tfoot>
+													</table>																																
+												</div>
+											</div>
+										</div>
+										<div class="col-md-8">
+											<div class="panel rounded shadow">
+												<div class="panel-heading">
+													<div class="pull-left">
+														<h3 class="panel-title">Largest Legal Entity Donors Graph</h3>
+													</div>
+													<div class="clearfix"></div>
+												</div><!-- /.panel-heading -->
+												<div class="panel-body">
+													<nvd3 options="ctrl.options" data="ctrl.data" on-ready="ctrl.carregarGrafico()" class="with-3d-shadow with-transitions"></nvd3>															
+												</div>
+											</div>														
+										</div>
+									</div>
+                                   </div>
+                                   <div class="tab-pane" data-ng-class="{ active: ctrl.isSet(3) }" data-ng-show="ctrl.isSet(3)" style="min-height: 800px;">
+										TABELA COM MAIORES DOADORES QUE DOARAM A PARTIDOS DOS DOIS LADOS DA DISPUTA										
+                                  </div>
+                                  <div class="tab-pane" data-ng-class="{ active: ctrl.isSet(4) }" data-ng-show="ctrl.isSet(4)" style="min-height: 800px;">
+										INCLUIR GRÁFICO COM ANGULARJS E VIS.JS OU D3.JS
+                                  </div>
+	                              </div>
+	                          </div><!-- /.panel-body -->
+	                </div><!-- /.panel -->
+	            </div><!-- /.panel-body -->
+	            <!--/ End tabs content -->
+	        </div><!-- /.panel -->
+	
+	    </div>
+	</div>

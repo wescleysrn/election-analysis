@@ -1,0 +1,655 @@
+/* ========================================================================
+ * BASIC
+ * ======================================================================== */
+body, html {
+  background-color: #E9EAED;
+  font-family: "Open Sans", sans-serif;
+  color: #636E7B;
+  -webkit-font-smoothing: antialiased;
+  direction: ltr;
+  line-height: 21px;
+  font-size: 13px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 !important;
+}
+
+/* ========================================================================
+ * PAGE WRAPPER
+ * ======================================================================== */
+#wrapper {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  position: relative;
+}
+
+/* ========================================================================
+ * PAGE SIDEBAR FIXED
+ * ======================================================================== */
+body.page-sidebar-fixed #sidebar-left {
+  position: fixed;
+  left: 0px;
+}
+
+/* ========================================================================
+ * SIDEBAR LEFT
+ * ======================================================================== */
+#sidebar-left {
+  width: 220px;
+  float: left;
+  z-index: 200;
+  position: absolute;
+  background-color: #2A2A2A;
+}
+#sidebar-left:after {
+  background-color: #2A2A2A;
+  position: fixed;
+  height: 100%;
+  top: 0px;
+  bottom: 0px;
+  display: block;
+  content: "";
+  width: 220px;
+  z-index: -2;
+}
+
+@media (max-width: 768px) {
+  #sidebar-left {
+    top: 100px;
+    left: -220px;
+    z-index: 9999;
+    position: absolute;
+  }
+  #sidebar-left:after {
+    left: -220px;
+  }
+  #sidebar-left .sidebar-content {
+    padding: 23px 10px;
+  }
+  #sidebar-left .sidebar-menu > li:first-child a {
+    padding-top: 13px;
+  }
+}
+
+/* ========================================================================
+ * SIDEBAR LEFT & RIGHT
+ * ======================================================================== */
+#sidebar-left.sidebar-box .sidebar-content img,
+#sidebar-left.sidebar-rounded .sidebar-content img,
+#sidebar-left.sidebar-circle .sidebar-content img {
+  border: 2px solid #81b71a;
+}
+#sidebar-left.sidebar-box .sidebar-menu > li.active > a > .icon i,
+#sidebar-left.sidebar-rounded .sidebar-menu > li.active > a > .icon i,
+#sidebar-left.sidebar-circle .sidebar-menu > li.active > a > .icon i {
+  background-color: #81b71a;
+}
+#sidebar-left.sidebar-box .sidebar-menu > li > ul > li:hover:after,
+#sidebar-left.sidebar-rounded .sidebar-menu > li > ul > li:hover:after,
+#sidebar-left.sidebar-circle .sidebar-menu > li > ul > li:hover:after {
+  -webkit-box-shadow: 0 0 0 5px #628a14;
+  -moz-box-shadow: 0 0 0 5px #628a14;
+  box-shadow: 0 0 0 5px #628a14;
+}
+#sidebar-left .sidebar-menu ul li:hover:after {
+  background-color: #81b71a;
+}
+#sidebar-left .sidebar-menu ul li:hover a:before {
+  color: #81b71a;
+}
+#sidebar-left .sidebar-menu ul li.active:after {
+  background-color: #81b71a;
+}
+#sidebar-left .sidebar-menu ul li.active > ul > li.active a:before {
+  color: #81b71a;
+}
+
+/* ========================================================================
+ * SIDEBAR MENU
+ * ======================================================================== */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  margin-bottom: 0px;
+}
+.sidebar-menu li:after {
+  position: absolute;
+  content: "";
+  left: 55px;
+  bottom: -1px;
+}
+.sidebar-menu li.submenu .label.pull-right, .sidebar-menu li.submenu .badge.pull-right {
+  margin-right: 10px !important;
+}
+.sidebar-menu li.submenu .fa.arrow {
+  font-size: 15px;
+  margin-right: 15px;
+}
+.sidebar-menu li .label, .sidebar-menu li .badge {
+  text-shadow: 0px 1px 1px #777;
+  color: #f7f7f7;
+  padding: 3px 4px 4px 4px;
+}
+.sidebar-menu > li {
+  display: block;
+  position: relative;
+}
+.sidebar-menu > li:after {
+  border-left: 2px solid #373737;
+}
+.sidebar-menu > li:first-child.active {
+  margin-top: -1px;
+}
+.sidebar-menu > li:first-child > a > .icon:after {
+  top: -1px;
+}
+.sidebar-menu > li:last-child:after {
+  bottom: 10px;
+}
+.sidebar-menu > li:last-child > a > .icon:after {
+  bottom: 6px;
+}
+.sidebar-menu > li.active {
+  background-color: #3c3c3c;
+}
+.sidebar-menu > li.active .icon {
+  text-shadow: 0px 1px 1px #777;
+}
+.sidebar-menu > li.active > a span {
+  color: #d0d0d0;
+}
+.sidebar-menu > li.active > a .arrow {
+  color: #777;
+}
+.sidebar-menu > li.active > a > .plus:before {
+  content: "\f147";
+}
+.sidebar-menu > li.active > a > .icon i {
+  color: #d0d0d0;
+}
+.sidebar-menu > li.sidebar-minimize-end > a > .icon:after {
+  bottom: 6px !important;
+}
+.sidebar-menu > li > a {
+  display: block;
+  padding: 6px 15px;
+  text-decoration: none;
+}
+.sidebar-menu > li > a:hover span {
+  color: #d0d0d0;
+}
+.sidebar-menu > li > a:hover .text, .sidebar-menu > li > a:hover .icon > i {
+  color: #d0d0d0;
+}
+.sidebar-menu > li > a:after {
+  position: absolute;
+  content: "";
+  left: 29px;
+  top: -13px;
+  bottom: 0px;
+  z-index: -1;
+}
+.sidebar-menu > li > a > span {
+  display: inline;
+  color: #777;
+}
+.sidebar-menu > li > a > .count {
+  float: right;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 11px;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  line-height: 19px;
+  background-color: #373737;
+}
+.sidebar-menu > li > a > .icon {
+  margin-right: 10px;
+}
+.sidebar-menu > li > a > .icon:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 29px;
+  z-index: -1;
+}
+.sidebar-menu > li > a > .icon i {
+  text-align: center;
+  line-height: 25px;
+  width: 29px;
+  font-size: 12px;
+  color: #777;
+}
+.sidebar-menu > li > a > .arrow, .sidebar-menu > li > a > .plus {
+  vertical-align: middle;
+  font-weight: 400;
+  text-align: center;
+  font-size: 13px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.sidebar-menu > li > a > .arrow:before, .sidebar-menu > li > a > .plus:before {
+  font-family: FontAwesome;
+  font-size: 15px;
+}
+.sidebar-menu > li > a > .arrow:before {
+  content: "\f105";
+}
+.sidebar-menu > li > a > .arrow.open:before {
+  content: "\f107" !important;
+}
+.sidebar-menu > li > a > .selected {
+  display: block;
+  background-image: none;
+  float: right;
+  position: absolute;
+  right: 0px;
+  top: 14px;
+  background: none;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-top: 6px double transparent;
+  border-bottom: 6px double transparent;
+  border-left: 0;
+  border-right: 6px solid #F3F3F4;
+}
+.sidebar-menu > li > a > .plus:before {
+  content: "\f196";
+}
+.sidebar-menu > li > a > .plus.open:before {
+  content: "\f147" !important;
+}
+.sidebar-menu > li > a > .pull-right {
+  margin-top: 5px;
+}
+.sidebar-menu > li.submenu ul {
+  display: none;
+}
+.sidebar-menu > li.submenu.active .arrow:before {
+  content: "\f107";
+}
+.sidebar-menu > li.submenu.active > ul {
+  display: block;
+}
+.sidebar-menu > li.submenu.active > ul > li.submenu.active .arrow:before {
+  content: "\f103" !important;
+}
+.sidebar-menu > li.submenu.active > ul > li.submenu.active > ul {
+  display: block;
+}
+.sidebar-menu > li.submenu.active > ul > li.submenu.active > ul > li.active a {
+  color: #d0d0d0;
+}
+.sidebar-menu > li.submenu.active > ul > li.submenu.active > ul > li.active a:before {
+  color: #81B71A;
+}
+.sidebar-menu > li.submenu.active > ul > li.submenu.active > ul > li a {
+  color: #777;
+}
+.sidebar-menu > li.submenu.active > ul > li.submenu.active > ul > li a:hover {
+  color: #d0d0d0;
+}
+.sidebar-menu > li > ul:after {
+  position: absolute;
+  content: "";
+  left: 29px;
+  top: 39px;
+  bottom: 0;
+}
+.sidebar-menu > li > ul > li {
+  line-height: 15px;
+  border-bottom: 1px solid #373737;
+}
+.sidebar-menu > li > ul > li > a:hover {
+  background-color: black;
+}
+.sidebar-menu > li > ul > li > a > .text {
+  min-width: 110px;
+}
+.sidebar-menu > li > ul > li > a > .arrow {
+  float: right;
+  margin-right: 21px;
+  vertical-align: middle;
+  font-weight: 400;
+  width: 30px;
+  text-align: right;
+  font-size: 13px;
+}
+.sidebar-menu > li > ul > li > a > .arrow:before {
+  font-family: FontAwesome;
+  font-size: 15px;
+  content: "\f101" !important;
+  margin-right: -6px;
+}
+.sidebar-menu > li > ul > li > a > .arrow.open:before {
+  content: "\f103" !important;
+}
+.sidebar-menu > li > ul > li > ul {
+  background-color: #161616;
+}
+.sidebar-menu > li > ul > li > ul > li > a {
+  padding: 8px 0px 8px 30px;
+}
+.sidebar-menu > li > ul > li > ul > li > a:hover {
+  background-color: black;
+}
+.sidebar-menu > li > ul > li > ul > li > ul {
+  background-color: #111111;
+}
+.sidebar-menu > li > ul > li > ul > li > ul > li > a {
+  padding: 8px 0px 8px 35px;
+}
+.sidebar-menu > li > ul > li > ul > li > ul > li > a:hover {
+  background-color: black;
+}
+.sidebar-menu > li > ul > li > ul > li > ul > li > ul {
+  background-color: #0b0b0b;
+}
+.sidebar-menu > li > ul > li > ul > li > ul > li > ul > li > a {
+  padding: 8px 0px 8px 40px;
+}
+.sidebar-menu > li > ul > li > ul > li > ul > li > ul > li > a:hover {
+  background-color: black;
+}
+.sidebar-menu > li > ul > li > ul > li > ul > li > ul > li > ul {
+  background-color: #060606;
+}
+.sidebar-menu > li > ul > li > ul > li > ul > li > ul > li > ul > li > a {
+  padding: 8px 0px 8px 45px;
+}
+.sidebar-menu > li > ul > li > ul > li > ul > li > ul > li > ul > li > a:hover {
+  background-color: black;
+}
+.sidebar-menu > li > ul > li.active {
+  background-color: black;
+}
+.sidebar-menu > li > ul > li.active.submenu > a {
+  background-color: #373737;
+}
+.sidebar-menu ul {
+  margin: 0;
+  padding: 0;
+  background-color: #1d1d1d;
+  list-style: none;
+}
+.sidebar-menu ul li {
+  position: relative;
+}
+.sidebar-menu ul li:after {
+  background-color: #2A2A2A;
+}
+.sidebar-menu ul li a {
+  font-size: 12px;
+  text-decoration: none;
+  padding: 8px 0 8px 22px;
+  display: block;
+  text-transform: capitalize;
+  color: #777;
+}
+.sidebar-menu ul li a:hover {
+  color: #b7b7b7;
+}
+.sidebar-menu ul li a:before {
+  color: #373737;
+}
+.sidebar-menu ul li.active a {
+  color: #b7b7b7;
+}
+.sidebar-menu ul li.active a:before {
+  color: #373737;
+}
+.sidebar-menu ul li.active ul li.active > a {
+  color: #b7b7b7;
+}
+.sidebar-menu ul li.active ul li > a {
+  color: #777;
+}
+.sidebar-menu ul li.active ul li > a:hover {
+  color: #b7b7b7;
+}
+.sidebar-menu .submenu-header {
+  display: none;
+}
+
+/* ========================================================================
+ * SIDEBAR CATEGORY
+ * ======================================================================== */
+.sidebar-category {
+  padding: 0px 20px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 40px;
+  margin: 0px;
+  text-transform: uppercase;
+  background-color: #323232;
+  color: #7f7f7f;
+}
+
+/* ========================================================================
+ * SIDEBAR VARIANT
+ * ======================================================================== */
+.sidebar-box .sidebar-menu > li > a > .icon:after, .sidebar-rounded .sidebar-menu > li > a > .icon:after, .sidebar-circle .sidebar-menu > li > a > .icon:after {
+  border: 1px solid #373737;
+}
+.sidebar-box .sidebar-menu > li > a > .icon i, .sidebar-rounded .sidebar-menu > li > a > .icon i, .sidebar-circle .sidebar-menu > li > a > .icon i {
+  border: 2px solid #373737;
+  background-color: #222222;
+}
+.sidebar-box .sidebar-menu > li > ul:after, .sidebar-rounded .sidebar-menu > li > ul:after, .sidebar-circle .sidebar-menu > li > ul:after {
+  border-left: 2px solid #373737;
+}
+.sidebar-box .sidebar-menu > li > ul > li:after, .sidebar-rounded .sidebar-menu > li > ul > li:after, .sidebar-circle .sidebar-menu > li > ul > li:after {
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  left: 26px;
+  top: 13px;
+  bottom: auto;
+  border-color: transparent;
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  -webkit-transition: all 0.5s ease-in-out;
+  -webkit-transition-delay: 0s;
+  transition: all 0.5s ease-in-out 0s;
+  -moz-box-shadow: 0 0 0 2px #373737;
+  -webkit-box-shadow: 0 0 0 2px #373737;
+  box-shadow: 0 0 0 2px #373737;
+}
+.sidebar-box .sidebar-menu > li > ul > li a:before, .sidebar-rounded .sidebar-menu > li > ul > li a:before, .sidebar-circle .sidebar-menu > li > ul > li a:before {
+  content: "\2014\00a0";
+  margin-left: 13px;
+}
+
+.sidebar-box .sidebar-content img {
+  border-radius: 0px;
+}
+.sidebar-box .sidebar-menu > li > a > .icon i {
+  border-radius: 0px;
+}
+.sidebar-box .sidebar-menu > li > ul > li:after {
+  border-radius: 0px;
+}
+
+.sidebar-rounded .sidebar-content img {
+  border-radius: 3px;
+}
+.sidebar-rounded .sidebar-menu > li > a > .icon i {
+  border-radius: 3px;
+}
+.sidebar-rounded .sidebar-menu > li > ul > li:after {
+  border-radius: 3px;
+}
+
+.sidebar-circle .sidebar-content img {
+  border-radius: 50%;
+}
+.sidebar-circle .sidebar-menu > li > a > .icon i {
+  border-radius: 50%;
+}
+.sidebar-circle .sidebar-menu > li > ul > li:after {
+  border-radius: 50%;
+}
+
+
+/* ========================================================================
+ * PAGE CONTENT
+ * ======================================================================== */
+#page-content {
+  background-color: #F3F3F4;
+  margin-left: 220px;
+  z-index: 100;
+}
+
+@media (max-width: 1024px) {
+  #page-content .header-content h2 span {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  #page-content {
+    margin-right: 0px;
+  }
+  #page-content .header-content h2 {
+    font-size: 20px;
+  }
+  #page-content .header-content .breadcrumb-wrapper {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  #page-content {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-left: 0px !important;
+    margin-top: 50px;
+    margin-right: 0px !important;
+  }
+  #page-content .header-content {
+    padding: 12px 10px;
+  }
+  #page-content .header-content .breadcrumb-wrapper {
+    right: 10px;
+    display: block;
+  }
+}
+@media (max-width: 600px) {
+  #page-content .navbar-form input {
+    min-width: 230px !important;
+  }
+  #page-content .navbar-form .tt-dropdown-menu {
+    width: 300px !important;
+  }
+}
+@media (max-width: 480px) {
+  #page-content .navbar-form input {
+    min-width: 200px !important;
+  }
+  #page-content .navbar-left {
+    margin: 7.5px 0px 7.5px 5px !important;
+  }
+  #page-content .navbar-right {
+    margin: 0px !important;
+  }
+}
+
+/* ========================================================================
+ * HEADER CONTENT
+ * ======================================================================== */
+.header-content {
+  padding: 12px 20px;
+  border-bottom: 1px solid #DDD;
+  background: #fbfbfb;
+  position: relative;
+  margin: 0px;
+}
+.header-content h2 {
+  font-size: 22px;
+  color: #1D2939;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+.header-content h2 i {
+  font-size: 21px;
+  margin-right: 7px;
+  border-right: 1px dotted #DDD;
+  padding-right: 10px;
+}
+.header-content h2 span {
+  font-size: 13px;
+  text-transform: none;
+  color: #999;
+  font-style: italic;
+  vertical-align: middle;
+  letter-spacing: 0;
+  margin-left: 5px;
+}
+.header-content .breadcrumb-wrapper {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+.header-content .breadcrumb-wrapper .label {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: normal;
+  display: inline-block;
+}
+.header-content .breadcrumb-wrapper .breadcrumb {
+  background: none;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+.header-content .breadcrumb-wrapper .breadcrumb li {
+  font-size: 12px;
+  white-space: nowrap;
+}
+.header-content .breadcrumb-wrapper .breadcrumb li + li:before {
+  content: "";
+  padding: 0px;
+}
+.header-content .breadcrumb-wrapper .breadcrumb li span, .header-content .breadcrumb-wrapper .breadcrumb li i {
+  color: #999;
+  width: 1.25em;
+  text-align: center;
+}
+.header-content .breadcrumb-wrapper .breadcrumb li span {
+  padding: 0px 3px;
+}
+.header-content .breadcrumb-wrapper .breadcrumb li a {
+  color: #999;
+}
+.header-content .breadcrumb-wrapper .breadcrumb li.active {
+  color: #999;
+  padding-left: 3px;
+}
+.header-content .breadcrumb-wrapper .breadcrumb li:last-child a {
+  text-decoration: none;
+  cursor: default;
+}
+.header-content .breadcrumb-wrapper .breadcrumb li:last-child i:last-child {
+  display: none;
+}
+
+/* ========================================================================
+ * BODY CONTENT
+ * ======================================================================== */
+.body-content {
+  background-color: #eeeeef;
+  padding: 20px;
+  min-height: inherit;
+  position: relative;
+}
+
+
