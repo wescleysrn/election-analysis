@@ -8,13 +8,28 @@
   <description>Analysis Brazil 2014 Elections With Neo4J</description>
 
 	<!-- SPRING BOOT Declaration -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.2.RELEASE</version>
-    </parent>
+    	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.2.RELEASE</version>
+    	</parent>
 	<!--/ SPRING BOOT Declaration -->
+	
+	<licenses>
+		<license>
+			<name>GNU General Public License v3.0</name>
+			<url>https://opensource.org/licenses/GPL-3.0</url>
+		</license>
+	</licenses>
 
+	<developers>
+		<developer>
+			<id>wescleysrn</id>
+			<name>Wescley de Macêdo Sousa</name>
+			<url>https://github.com/wescleysrn</url>
+		</developer>
+	</developers>
+	
 	<properties>
 		<!-- Neo4J -->
         <neo4j-ogm.version>2.1.2</neo4j-ogm.version>
