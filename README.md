@@ -78,7 +78,7 @@
 
 #### AGRADECIMENTO
 
-<p align="justify">No trabalho de conversão da base aberta do STE para arquivos .csv utilizando a ferramenta Data Integration, recebi muita ajuda do meu colega de trabalho [Hebert Filgueiras de Azevedo](https://github.com/hebertfilgueiras), ao qual deixo o meu agradecimento.</p>
+No trabalho de conversão da base aberta do STE para arquivos .csv utilizando a ferramenta Data Integration, recebi muita ajuda do meu colega de trabalho [Hebert Filgueiras de Azevedo](https://github.com/hebertfilgueiras), ao qual deixo o meu agradecimento.
 
 ## INSTALAÇÃO NEO4J
 
