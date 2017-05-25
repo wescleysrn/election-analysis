@@ -76,6 +76,10 @@
 
 <p align="justify">Uma vez com os arquivos preparados, é possível realizar a carga no banco Neo4J por meio de uma ferramenta própria do banco que auxilia exatamente neste procedimento. Na seção a seguir será explicado o passo de carga do banco.</p>
 
+#### AGRADECIMENTO
+
+<p align="justify">No trabalho de conversão da base aberta do STE para arquivos .csv utilizando a ferramenta Data Integration, recebi muita ajuda do meu colega de trabalho [Hebert Filgueiras de Azevedo](https://github.com/hebertfilgueiras), ao qual deixo o meu agradecimento.</p>
+
 ## INSTALAÇÃO NEO4J
 
 <p align="justify">Neo4j é um sistema de gerenciamento de banco de dados de gráficos desenvolvido pela Neo Technology, Inc. Descrito por seus desenvolvedores como um banco de dados transacional compatível com ACID com armazenamento e processamento de gráficos nativos, Neo4j é o banco de dados gráfico mais popular de acordo com db-engines.com. O código do projeto pode ser visualizado no Github com suporte no StackOverflow e Google Groups, utilizado por centenas de milhares de companias e organizações em quase todos os mercados. Casos de uso incluem gerenciamento de rede, softwares analiticos, pesquisa cientifica, roteamento, gestão organizacional e de projeto, recomendações, redes sociais e muito mais.</p>
